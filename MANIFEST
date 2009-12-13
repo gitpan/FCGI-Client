@@ -18,7 +18,9 @@ inc/Test/Base/Filter.pm
 inc/Test/Builder.pm
 inc/Test/Builder/Module.pm
 inc/Test/More.pm
+lib/FCGI/.Client.pm.swp
 lib/FCGI/Client.pm
+lib/FCGI/Client/.RecordFactory.pm.swp
 lib/FCGI/Client/Connection.pm
 lib/FCGI/Client/Constant.pm
 lib/FCGI/Client/Record.pm
@@ -39,6 +41,7 @@ xt/010_live/00_hello.t
 xt/010_live/02_ruby.t
 xt/010_live/03_post.t
 xt/010_live/04_external.t
+xt/010_live/05_long_key_names_values.t
 xt/01_podspell.t
 xt/02_perlcritic.t
 xt/03_pod.t

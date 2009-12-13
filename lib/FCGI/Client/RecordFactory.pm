@@ -1,12 +1,10 @@
 package FCGI::Client::RecordFactory;
 use strict;
 use warnings;
-use Carp ();
 use FCGI::Client::Constant;
 
 sub create_request {
     my ($self, $reqid, $env, $content) = @_;
-    Carp::croak("env should be hashref") if ref($env) ne 'HASH';
     my $factory = __PACKAGE__;
     my $flags = 0;
     return join('',
@@ -65,14 +63,25 @@ sub build_begin_request {
 }
 
 # generate FCGI_PARAMS record
+# 0x80000000 means: The high-order bit of the first byte of a length indicates the length's encoding. A high-order zero implies a one-byte encoding, a one a four-byte encoding.
 sub build_params {
     my ($class, $request_id, %params)  = @_;
     my $content = '';
     while (my ($k, $v) = each %params) {
         my $klen = length($k);
         my $vlen = length($v);
-        $content .= ($klen < 127) ? pack('C', $klen) : pack('N', $klen);
-        $content .= ($vlen < 127) ? pack('C', $vlen) : pack('N', $vlen);
+        if ($klen < 127) {
+            $content .= pack('C', $klen); # C: An unsigned char (octet) value.
+        } else {
+            $klen = $klen | 0x80000000;
+            $content .= pack('N', $klen); # N: An unsigned quad value.
+        }
+        if ($vlen < 127) {
+            $content .= pack('C', $vlen);
+        } else {
+            $vlen = $vlen | 0x80000000;
+            $content .= pack('N', $vlen);
+        }
         $content .= $k;
         $content .= $v;
     }

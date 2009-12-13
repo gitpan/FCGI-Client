@@ -1,5 +1,10 @@
 Revision history for Perl extension FCGI::Client
 
+0.03
+
+    - fixed bug: long key/value pairs in headers now conform to spec
+      (peterkeen)
+
 0.02
 
     - better error handler
