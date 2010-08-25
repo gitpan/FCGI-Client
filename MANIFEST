@@ -28,6 +28,7 @@ Makefile.PL
 MANIFEST			This list of files
 META.yml
 README
+scripts/fcgicli.pl
 t/00_compile.t
 t/fcgi/big_post.fcgi
 t/fcgi/fcgi.rb
@@ -35,6 +36,7 @@ t/fcgi/hello.fcgi
 t/fcgi/keepalive.fcgi
 t/fcgi/post.fcgi
 t/fcgi/ruby.rb
+t/fcgi/timeout.fcgi
 t/Internal.pm
 xt/010_live/00_hello.t
 xt/010_live/02_ruby.t
@@ -42,6 +44,7 @@ xt/010_live/03_post.t
 xt/010_live/04_external.t
 xt/010_live/05_long_key_names_values.t
 xt/010_live/06_big_post.t
+xt/010_live/07_timeout.t
 xt/01_podspell.t
 xt/02_perlcritic.t
 xt/03_pod.t

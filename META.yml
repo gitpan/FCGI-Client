@@ -4,11 +4,10 @@ author:
   - 'Tokuhiro Matsuno <tokuhirom @*(#RJKLFHFSDLJF gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.92'
+generated_by: 'Module::Install version 1.00'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -20,12 +19,10 @@ no_index:
     - t
     - xt
 requires:
-  Any::Moose: 0.1
+  Any::Moose: 0.13
   Filter::Util::Call: 0
   IO::Socket::UNIX: 0
-  Try::Tiny: 0
-  autodie: 0
   perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05
